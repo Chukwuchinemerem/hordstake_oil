@@ -112,13 +112,10 @@ WHITENOISE_AUTOREFRESH = True
 #
 # On Render: Disks → mount path MUST be /var/data → add env var RENDER_DISK=True
 
-RENDER_DISK = os.environ.get('RENDER_DISK', 'False') == 'True'
 
-if RENDER_DISK:
-    MEDIA_ROOT = '/var/data/media'
-else:
-    MEDIA_ROOT = str(BASE_DIR / 'media')
-
+# Force local media storage for uploads (Render free tier workaround)
+RENDER_DISK = False  # Always use local storage
+MEDIA_ROOT = str(BASE_DIR / 'media')
 MEDIA_URL = '/media/'
 
 # Ensure media subdirectories exist at startup
