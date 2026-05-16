@@ -20,7 +20,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     '0.0.0.0',
-    'hordstakeoilandgas.onrender.com',
+    'hordstakeoilandgas-dwtl.onrender.com',
     'hordstake.org',
     '*',
 ]
