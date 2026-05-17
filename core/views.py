@@ -44,16 +44,14 @@ def home(request):
     languages  = ['English','Français','Español','Deutsch','Nederlands','Português','العربية','中文','日本語']
     footer_links = ['Equipment Rental','Oil & Gas Investment','Fleet Management','Offshore Operations','Pipeline Services']
     partners = [
-        {'name':'Shell',          'color':'#DD1D21', 'logo':'https://upload.wikimedia.org/wikipedia/en/thumb/e/e8/Shell_logo.svg/150px-Shell_logo.svg.png'},
-        {'name':'ExxonMobil',     'color':'#E4000F', 'logo':'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/ExxonMobil_Logo.svg/250px-ExxonMobil_Logo.svg.png'},
-        {'name':'BP',             'color':'#007A33', 'logo':'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/BP_logo.svg/150px-BP_logo.svg.png'},
-        {'name':'Chevron',        'color':'#0066A1', 'logo':'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Chevron_Logo.svg/250px-Chevron_Logo.svg.png'},
-        {'name':'TotalEnergies',  'color':'#E6007E', 'logo':'https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Logo_Total_SE_2021.svg/250px-Logo_Total_SE_2021.svg.png'},
-        {'name':'Halliburton',    'color':'#D4002A', 'logo':'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Halliburton_logo.svg/250px-Halliburton_logo.svg.png'},
-        {'name':'SLB',            'color':'#009DDC', 'logo':'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/SLB_Logo_2022.svg/250px-SLB_Logo_2022.svg.png'},
-        {'name':'ConocoPhillips', 'color':'#B20000', 'logo':'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/ConocoPhillips_logo_2.svg/250px-ConocoPhillips_logo_2.svg.png'},
-        {'name':'Saudi Aramco',   'color':'#00843D', 'logo':'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Saudi_Aramco_Logo.svg/200px-Saudi_Aramco_Logo.svg.png'},
-        {'name':'Baker Hughes',   'color':'#003087', 'logo':'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Baker_Hughes_logo.svg/200px-Baker_Hughes_logo.svg.png'},
+        {'name':'Halliburton',    'logo':'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Halliburton_logo.svg/250px-Halliburton_logo.svg.png', 'bg':'#FFF0F3', 'border':'#D4002A', 'text':'#D4002A'},
+        {'name':'SLB',            'logo':'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/SLB_Logo_2022.svg/250px-SLB_Logo_2022.svg.png', 'bg':'#E6F6FF', 'border':'#009DDC', 'text':'#009DDC'},
+        {'name':'CONO',           'logo':'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/ConocoPhillips_logo_2.svg/250px-ConocoPhillips_logo_2.svg.png', 'bg':'#FFF5F5', 'border':'#B20000', 'text':'#B20000'},
+        {'name':'ConocoPhillips', 'logo':'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/ConocoPhillips_logo_2.svg/250px-ConocoPhillips_logo_2.svg.png', 'bg':'#FFF5F5', 'border':'#B20000', 'text':'#B20000'},
+        {'name':'SAUD',           'logo':'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Saudi_Aramco_Logo.svg/200px-Saudi_Aramco_Logo.svg.png', 'bg':'#F0FFF7', 'border':'#00843D', 'text':'#00843D'},
+        {'name':'Saudi Aramco',   'logo':'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Saudi_Aramco_Logo.svg/200px-Saudi_Aramco_Logo.svg.png', 'bg':'#F0FFF7', 'border':'#00843D', 'text':'#00843D'},
+        {'name':'BAKE',           'logo':'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Baker_Hughes_logo.svg/200px-Baker_Hughes_logo.svg.png', 'bg':'#F0F4FF', 'border':'#003087', 'text':'#003087'},
+        {'name':'Baker Hughes',   'logo':'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Baker_Hughes_logo.svg/200px-Baker_Hughes_logo.svg.png', 'bg':'#F0F4FF', 'border':'#003087', 'text':'#003087'},
     ]
     return render(request, 'core/home.html', {
         'equipment': equipment, 'services': services, 'steps': steps,
