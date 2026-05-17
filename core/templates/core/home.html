@@ -531,27 +531,30 @@
   <!-- Infinite scroll ticker -->
   <div class="relative" style="overflow:hidden;">
     <div class="ticker-track flex gap-12 items-center" id="ticker">
+      {% comment %} Example partners with brand colors. Replace with your actual data in the view. {% endcomment %}
       {% for p in partners %}
       <div class="flex-shrink-0 flex flex-col items-center gap-3 px-6">
-        <div class="w-32 h-16 flex items-center justify-center rounded-xl px-4 py-2 partner-card-inner" style="background:#fff;border:1.5px solid #E8ECF4;box-shadow:0 2px 10px rgba(10,31,68,0.07);">
-          <img src="{{ p.logo }}" alt="{{ p.name }}" class="max-h-12 max-w-28 object-contain" style="filter:none;opacity:0.85;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="w-32 h-16 flex items-center justify-center rounded-xl px-4 py-2 partner-card-inner"
+             style="background:{{ p.bg|default:'#fff' }};border:2.5px solid {{ p.border|default:'#E8ECF4' }};box-shadow:0 2px 10px rgba(10,31,68,0.07);">
+          <img src="{{ p.logo }}" alt="{{ p.name }}" class="max-h-12 max-w-28 object-contain" style="filter:none;opacity:0.95;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
           <div class="hidden w-full h-full items-center justify-center rounded-lg" style="background:#F3F4F6;">
             <span class="font-display font-bold text-lg" style="color:#0A1F44;">{{ p.name|slice:':4'|upper }}</span>
           </div>
         </div>
-        <span class="text-xs font-semibold" style="color:#6B7280;font-family:DM Sans,sans-serif;font-weight:600;">{{ p.name }}</span>
+        <span class="text-xs font-semibold" style="color:{{ p.text|default:'#6B7280' }};font-family:DM Sans,sans-serif;font-weight:600;">{{ p.name }}</span>
       </div>
       {% endfor %}
       <!-- Duplicate for seamless loop -->
       {% for p in partners %}
       <div class="flex-shrink-0 flex flex-col items-center gap-3 px-6">
-        <div class="w-32 h-16 flex items-center justify-center rounded-xl px-4 py-2 partner-card-inner" style="background:#fff;border:1.5px solid #E8ECF4;box-shadow:0 2px 10px rgba(10,31,68,0.07);">
-          <img src="{{ p.logo }}" alt="{{ p.name }}" class="max-h-12 max-w-28 object-contain" style="filter:none;opacity:0.85;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="w-32 h-16 flex items-center justify-center rounded-xl px-4 py-2 partner-card-inner"
+             style="background:{{ p.bg|default:'#fff' }};border:2.5px solid {{ p.border|default:'#E8ECF4' }};box-shadow:0 2px 10px rgba(10,31,68,0.07);">
+          <img src="{{ p.logo }}" alt="{{ p.name }}" class="max-h-12 max-w-28 object-contain" style="filter:none;opacity:0.95;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
           <div class="hidden w-full h-full items-center justify-center rounded-lg" style="background:#F3F4F6;">
             <span class="font-display font-bold text-lg" style="color:#0A1F44;">{{ p.name|slice:':4'|upper }}</span>
           </div>
         </div>
-        <span class="text-xs font-semibold" style="color:#6B7280;font-family:DM Sans,sans-serif;font-weight:600;">{{ p.name }}</span>
+        <span class="text-xs font-semibold" style="color:{{ p.text|default:'#6B7280' }};font-family:DM Sans,sans-serif;font-weight:600;">{{ p.name }}</span>
       </div>
       {% endfor %}
     </div>
@@ -561,7 +564,12 @@
   .ticker-track:hover { animation-play-state: paused; }
   @keyframes ticker-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
   .partner-card-inner { transition: all 0.25s ease; }
-  .partner-card-inner:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(10,31,68,0.15) !important; border-color: #0A1F44 !important; }
+  .partner-card-inner:hover {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 8px 24px rgba(10,31,68,0.18) !important;
+    border-color: #0A1F44 !important;
+    background: #fff !important;
+  }
   </style>
   <div class="max-w-7xl mx-auto px-4 sm:px-8 mt-12">
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
