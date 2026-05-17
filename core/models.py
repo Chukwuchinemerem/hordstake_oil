@@ -77,6 +77,11 @@ class Equipment(models.Model):
     daily_rate  = models.DecimalField(max_digits=12, decimal_places=2)
     image       = models.ImageField(upload_to='equipment/', blank=True, null=True)
     image_url   = models.URLField(max_length=500, blank=True, help_text='External image URL (used if no uploaded image)')
+    static_image = models.CharField(
+        max_length=255,
+        blank=True,
+        help_text="Image filename in static/core/equipment_images/ (e.g. 'drill.jpg')"
+    )
     status      = models.CharField(max_length=20, choices=STATUS_CHOICES, default='available')
     capacity    = models.CharField(max_length=100, blank=True)
     location    = models.CharField(max_length=200, blank=True)
@@ -88,7 +93,10 @@ class Equipment(models.Model):
 
     @property
     def display_image(self):
-        """Returns image URL - uploaded file first, then external URL."""
+        """Returns static image URL for permanent display, else uploaded file, else external URL."""
+        if self.static_image:
+            from django.templatetags.static import static
+            return static(f'core/equipment_images/{self.static_image}')
         if self.image:
             return self.image.url
         return self.image_url or ''
